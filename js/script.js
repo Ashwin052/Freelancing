@@ -344,27 +344,32 @@ const video = document.getElementById("intro-video");
 const website = document.getElementById("website");
 
 function showWebsite() {
+    if (website.classList.contains("show")) return;
+
     intro.style.opacity = "0";
-    intro.style.transition = "opacity .8s ease";
 
     setTimeout(() => {
         intro.style.display = "none";
         website.classList.add("show");
-    }, 800);
+    }, 500);
 }
 
-// When video finishes
-video.addEventListener("ended", showWebsite);
+// Play intro only once per browser session
+if (sessionStorage.getItem("introPlayed")) {
 
-// If video fails to load
-video.addEventListener("error", showWebsite);
+    intro.style.display = "none";
+    website.classList.add("show");
 
-// Safety timeout (after 5 seconds)
-setTimeout(() => {
-    if (!website.classList.contains("show")) {
-        showWebsite();
-    }
-}, 5000);
+} else {
+
+    sessionStorage.setItem("introPlayed", "true");
+
+    video.addEventListener("ended", showWebsite);
+    video.addEventListener("error", showWebsite);
+
+    // Fallback if something goes wrong
+    setTimeout(showWebsite, 4000);
+}
 
 const form = document.getElementById("contact-form");
 
