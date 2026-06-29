@@ -373,7 +373,7 @@ if (isReload) {
     video.addEventListener("error", showWebsite);
 
     // Safety timeout
-    setTimeout(showWebsite, 4000);
+    setTimeout(showWebsite, 5000);
 }
 
 const form = document.getElementById("contact-form");
