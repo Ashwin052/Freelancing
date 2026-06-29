@@ -32,6 +32,65 @@ body{
     overflow-x:hidden;
     width:100%;
 }
+/* =========================
+INTRO VIDEO
+========================= */
+
+#intro-loader{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:100vh;
+
+    background:#ffffff;
+
+    z-index:999999;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+}
+
+#intro-loader video{
+
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    background:#ffffff;
+
+}
+/* Hide website */
+
+#website{
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:opacity .8s ease;
+
+}
+
+/* Show website */
+
+#website.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
 
 /* HERO BACKGROUND */
 
@@ -414,7 +473,7 @@ section{
 
 .info{
     position:absolute;
-    top:40px;
+    top:30px;   /* instead of 40px */
     left:50%;
     transform:translateX(-50%);
     text-align:center;
@@ -1257,6 +1316,109 @@ section{
     color:#95a4c2;
 
 }
+
+/* Floating Social */
+
+.social-floating{
+
+    position:fixed;
+
+    left:25px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+    z-index:9999;
+
+}
+
+.social-floating a{
+
+    width:58px;
+
+    height:58px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-decoration:none;
+
+    color:white;
+
+    font-size:24px;
+
+    backdrop-filter:blur(15px);
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    transition:.35s;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+
+}
+
+.social-floating a:hover{
+
+    transform:translateX(8px) scale(1.08);
+
+}
+
+/* Colors */
+
+.whatsapp:hover{
+
+    background:#25D366;
+
+}
+
+.instagram:hover{
+
+    background:linear-gradient(
+    45deg,
+    #F58529,
+    #DD2A7B,
+    #8134AF,
+    #515BD4);
+
+}
+
+.facebook:hover{
+
+    background:#1877F2;
+
+}
+
+.linkedin:hover{
+
+    background:#0A66C2;
+
+}
+
+.twitter:hover{
+
+    background:#000;
+
+}
+
+.mail:hover{
+
+    background:#EA4335;
+
+}
 /* MOBILE */
 
 .menu-toggle{
@@ -1352,36 +1514,29 @@ section{
 }
 
 }
-@media(max-width:768px){
+@media (max-width: 768px){
 
-    .coverflow-item{
-        width:220px;
-        height:300px;
-        margin-left:-110px;
-        margin-top:-150px;
+    .info{
+        top: 20px;
+        width: 90%;
     }
 
     .info h2{
-        font-size:32px;
+        font-size: 32px;
+        line-height: 1.2;
+        margin-bottom: 15px;
     }
 
     .info p{
-        font-size:14px;
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 30px;
     }
 
-    .nav-button{
-        width:50px;
-        height:50px;
-        font-size:24px;
+    .coverflow-container{
+        margin-top: 100px; 
     }
 
-    .nav-button.prev{
-        left:10px;
-    }
-
-    .nav-button.next{
-        right:10px;
-    }
 }
 
 @media(max-width:768px){
@@ -1630,6 +1785,30 @@ section{
 .section-header{
 
     margin-bottom:35px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.social-floating{
+
+    right:15px;
+
+    left:auto;
+
+    top:65%;
+
+}
+
+.social-floating a{
+
+    width:50px;
+
+    height:50px;
+
+    font-size:20px;
 
 }
 

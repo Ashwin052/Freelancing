@@ -29,32 +29,32 @@ let isAnimating = false;
 
 const imageData = [
 {
-    title: "Healthcare",
-    description: "Digital marketing solutions for hospitals, clinics, and healthcare providers."
+    title: "Healthcare & Medical",
+    description: "Grow your healthcare practice with targeted Meta Ads, SEO, local search optimization, and patient-focused marketing campaigns that increase appointments, and build lasting trust."
 },
 {
     title: "Real Estate",
-    description: "Generate quality property leads and increase project visibility."
+    description: "Generate high-quality property enquiries through Meta Ads, performance marketing, creative campaigns, and lead generation strategies designed to connect buyers and sellers with your business."
 },
 {
-    title: "Education",
-    description: "Student acquisition and brand growth for educational institutions."
+    title: "Education & Training",
+    description: "Increase student admissions and course enrollments with strategic digital marketing, social media campaigns, Meta Ads, and SEO that improve visibility and build credibility."
 },
 {
     title: "E-Commerce",
-    description: "Drive online sales through SEO, ads, and conversion optimization."
+    description: "Drive online sales with conversion-focused Meta Ads, performance marketing, remarketing campaigns, and AI-powered customer engagement strategies that maximize your return on ad spend."
 },
 {
-    title: "Finance",
-    description: "Build trust and generate leads for financial services and advisors."
+    title: "Restaurants & Cafés",
+    description: "Attract more diners with local SEO, engaging social media marketing, promotional Meta Ads, and creative campaigns that increase footfall, online orders, and customer loyalty."
 },
 {
-    title: "Manufacturing",
-    description: "Expand B2B reach and generate industrial business opportunities."
+    title: "Fashion & Lifestyle",
+    description: "Build a memorable brand with influencer-driven campaigns, Meta Ads, social media marketing, and creative branding strategies that increase engagement and product sales."
 },
 {
-    title: "Hospitality",
-    description: "Increase bookings and customer engagement for hotels and resorts."
+    title: "Corporate Services",
+    description: "Generate qualified business leads through performance marketing, LinkedIn marketing strategies, SEO, and AI-powered digital campaigns that strengthen your brand."
 }
 ];
 
@@ -213,43 +213,43 @@ if(items.length){
 const aboutSlides = [
 
 {
-    image:"assets/images/about-1.jpg",
+    image:"assets/images/Driving Business Growth Through Digital Innovation.jpg",
 
-    title:"Building The Future Of Digital Growth",
+    title:"Driving Business Growth Through Digital Innovation",
 
-    desc:"Parkit Digital helps businesses scale through AI-powered marketing, SEO, automation and modern web experiences that generate measurable business growth."
+    desc:"We combine creativity, technology, and marketing expertise to build digital strategies that help businesses increase visibility, generate qualified leads, and achieve sustainable growth. Every campaign is backed by data, creativity, and a results-driven approach."
 },
 
 {
-    image:"assets/images/about-2.jpg",
+    image:"assets/images/Performance Marketing That Delivers Results.jpg",
 
-    title:"Creative Strategies That Deliver Results",
+    title:"Performance Marketing That Delivers Results",
 
-    desc:"We combine creativity, technology and data to build marketing campaigns that generate measurable growth."
+    desc:"Our performance-focused campaigns are designed to maximize return on investment through strategic Meta Ads, SEO, audience targeting, and continuous optimization that turns marketing budgets into measurable business growth."
 },
 
 {
-    image:"assets/images/about-3.jpg",
+    image:"assets/images/Creative Ideas Powerful Execution.jpg",
 
-    title:"Helping Businesses Grow Smarter",
+    title:"Creative Ideas. Powerful Execution.",
 
-    desc:"From startups to growing brands, we create digital solutions that increase traffic, leads and revenue."
+    desc:"From branding and social media campaigns to engaging digital experiences, we create impactful marketing solutions that strengthen your brand identity and connect you with your ideal audience."
 },
 
 {
-    image:"assets/images/about-4.jpg",
+    image:"assets/images/AI-Powered Marketing Solutions.jpg",
 
-    title:"Driven By Innovation And AI",
+    title:"AI-Powered Marketing Solutions",
 
-    desc:"Our AI-driven automation and performance marketing strategies help businesses work smarter and grow faster."
+    desc:"We leverage AI-driven automation and intelligent marketing workflows to improve efficiency, personalize customer experiences, and help businesses scale faster in today's competitive digital landscape."
 },
 
 {
-    image:"assets/images/about-5.jpg",
+    image:"assets/images/Building Long-Term Business Partnerships.jpg",
 
-    title:"Your Success Is Our Mission",
+    title:"Building Long-Term Business Partnerships",
 
-    desc:"Every project is focused on delivering long-term value, stronger branding and sustainable business growth."
+    desc:"We believe successful marketing is built on trust, transparency, and collaboration. Our goal is to become a long-term digital growth partner, helping businesses adapt, innovate, and succeed in an ever-changing online world."
 }
 
 ];
@@ -338,3 +338,64 @@ setInterval(()=>{
     updateAboutSlider();
 
 },5000);
+
+const intro = document.getElementById("intro-loader");
+
+const video = document.getElementById("intro-video");
+
+const website = document.getElementById("website");
+
+video.onended = () => {
+
+    intro.style.opacity = "0";
+
+    intro.style.transition = "opacity .8s ease";
+
+    setTimeout(()=>{
+
+        intro.style.display = "none";
+
+        website.classList.add("show");
+
+    },800);
+
+};
+
+const form = document.getElementById("contact-form");
+
+form.addEventListener("submit", function (e) {
+
+    e.preventDefault();
+
+    const btn = document.getElementById("submit-btn");
+
+    btn.innerHTML = "Sending...";
+    btn.disabled = true;
+
+    emailjs.sendForm(
+        "service_ao93jsf",
+        "template_ikmer4e",
+        this
+    )
+    .then(() => {
+
+        alert("🎉 Thank you! Your enquiry has been sent successfully.");
+
+        form.reset();
+
+        btn.innerHTML = "Get Free Consultation →";
+        btn.disabled = false;
+
+    })
+    .catch((error) => {
+
+        console.error(error);
+
+        alert("❌ Failed to send enquiry. Please try again.");
+
+        btn.innerHTML = "Get Free Consultation →";
+        btn.disabled = false;
+
+    });
+
+});
