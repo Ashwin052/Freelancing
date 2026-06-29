@@ -103,18 +103,6 @@ INTRO VIDEO
     padding:115px 20px 80px;
     position:relative;
     overflow:hidden;
-
-    /* background:
-    radial-gradient(circle at 30% 40%, rgba(0,119,255,.18), transparent 35%),
-    radial-gradient(circle at 80% 50%, rgba(176,72,255,.12), transparent 35%),
-    radial-gradient(circle at 50% 50%, rgba(255,255,255,.04), transparent 40%),
-    linear-gradient(
-        135deg,
-        #020b24 0%,
-        #071A3D 35%,
-        #08163a 65%,
-        #130728 100%
-    ); */
 }
 
 .hero::before{

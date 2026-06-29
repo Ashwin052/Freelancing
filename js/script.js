@@ -1,4 +1,4 @@
-console.log("Parkit Digital Loaded");
+
 
 /* MOBILE MENU */
 
