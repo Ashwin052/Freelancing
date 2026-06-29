@@ -399,3 +399,9 @@ form.addEventListener("submit", function (e) {
     });
 
 });
+
+if (sessionStorage.getItem("introPlayed")) {
+    document.getElementById("intro-loader").style.display = "none";
+} else {
+    sessionStorage.setItem("introPlayed", "true");
+}
