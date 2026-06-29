@@ -340,26 +340,31 @@ setInterval(()=>{
 },5000);
 
 const intro = document.getElementById("intro-loader");
-
 const video = document.getElementById("intro-video");
-
 const website = document.getElementById("website");
 
-video.onended = () => {
-
+function showWebsite() {
     intro.style.opacity = "0";
-
     intro.style.transition = "opacity .8s ease";
 
-    setTimeout(()=>{
-
+    setTimeout(() => {
         intro.style.display = "none";
-
         website.classList.add("show");
+    }, 800);
+}
 
-    },800);
+// When video finishes
+video.addEventListener("ended", showWebsite);
 
-};
+// If video fails to load
+video.addEventListener("error", showWebsite);
+
+// Safety timeout (after 5 seconds)
+setTimeout(() => {
+    if (!website.classList.contains("show")) {
+        showWebsite();
+    }
+}, 5000);
 
 const form = document.getElementById("contact-form");
 
