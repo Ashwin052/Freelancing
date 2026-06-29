@@ -2,4 +2,4 @@ User-agent: *
 
 Allow: /
 
-Sitemap: https://freelancing-six-alpha.vercel.app/sitemap.xml
+Sitemap: Sitemap: https://parkitdigital.com/sitemap.xml
