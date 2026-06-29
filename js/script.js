@@ -344,6 +344,7 @@ const video = document.getElementById("intro-video");
 const website = document.getElementById("website");
 
 function showWebsite() {
+
     if (website.classList.contains("show")) return;
 
     intro.style.opacity = "0";
@@ -354,22 +355,28 @@ function showWebsite() {
     }, 500);
 }
 
-// Play intro only once per browser session
-if (sessionStorage.getItem("introPlayed")) {
-
-    intro.style.display = "none";
-    website.classList.add("show");
-
-} else {
+// First visit in this tab
+if (!sessionStorage.getItem("introPlayed")) {
 
     sessionStorage.setItem("introPlayed", "true");
 
     video.addEventListener("ended", showWebsite);
     video.addEventListener("error", showWebsite);
 
-    // Fallback if something goes wrong
+    // Fallback
     setTimeout(showWebsite, 4000);
+
+} else {
+
+    // Refresh → Skip intro
+    intro.style.display = "none";
+    website.classList.add("show");
 }
+
+// Clear when the tab/window is closed
+window.addEventListener("beforeunload", () => {
+    sessionStorage.removeItem("introPlayed");
+});
 
 const form = document.getElementById("contact-form");
 
